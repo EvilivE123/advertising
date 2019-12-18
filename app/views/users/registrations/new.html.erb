@@ -1,0 +1,29 @@
+<div class='sign-up-grid'>    
+  <div class='header'>
+    <h1>Registration</h1>
+  </div>
+  
+  <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), 
+    layout: :horizontal, control_col: 'col-6 offset-3') do |f| %>  
+    <div class='container'>  
+      
+      <div class='fields'>  
+        <%= f.text_field :name, hide_label: true, placeholder: 'Enter Name' %>
+        <%= f.email_field :email, hide_label: true, placeholder: 'Enter Email' %>
+        <%= f.select(:type, options_for_select(
+          [['Organization', 'Organization'], ['AdSpaceAgent', 'AdSpaceAgent']]), 
+          { include_blank: 'Select Type', hide_label: true }, 
+          { class: 'browser-default custom-select' }) %>  
+        <%= f.password_field :password, hide_label: true, placeholder: 'Enter Password' %> 
+        <%= f.password_field :password_confirmation, hide_label: true, placeholder: 'Re-Enter Password' %>
+      </div>
+      
+      <div class='actions'>
+        <%= f.submit 'Sign up', class: 'btn btn-outline-primary btn-sm' %>
+        &nbsp;
+        <%= link_to 'Back', new_session_path(resource_name), class: 'btn btn-outline-secondary btn-sm' %>
+      </div>
+    </div>  
+  <% end %>
+</div>  
+

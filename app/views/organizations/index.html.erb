@@ -1,0 +1,33 @@
+<div class='organization-grid'>
+  <div class='header'>
+    <h3>Listing Pre-Booked Slots</h3>
+  </div>
+  <div class='container'>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th scope='col'>Dates</th>
+          <th scope='col'>Party Name</th>
+          <th scope='col'>Agent Name</th>
+          <th scope='col'>From Time</th>
+          <th scope='col'>To Time</th>
+          <th scope='col'>Price</th>
+          <th scope='col'>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @pre_booked_slots.each do |pre_booked_slot| %>
+          <tr>
+            <td scope='row'><%= pre_booked_slot.slot.dates %></td>
+            <td><%= pre_booked_slot.party_name %></td>
+            <td><%= pre_booked_slot.ad_space_agent.name %></td>
+            <td><%= pre_booked_slot.slot.time_in_format(pre_booked_slot.slot.from) %></td>
+            <td><%= pre_booked_slot.slot.time_in_format(pre_booked_slot.slot.to) %></td>
+            <td><%= pre_booked_slot.price %></td>
+            <td><%= link_to 'Book', new_organization_ad_space_agent_slot_booked_slot_path(current_user, pre_booked_slot.ad_space_agent, pre_booked_slot.slot), class: 'btn btn-outline-primary btn-sm'%></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>  
+</div>

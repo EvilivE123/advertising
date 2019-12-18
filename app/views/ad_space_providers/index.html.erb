@@ -1,0 +1,29 @@
+<div class='ad_space_provider_grid'>
+	<div class='header'>
+    <h3>Listing Slots</h3>
+  </div>
+  <div class='new-slot-link'>
+    <%= link_to 'Add Slot', new_ad_space_provider_slot_path(current_user), 
+      class: 'btn btn-outline-primary btn-sm' %>
+  </div>
+  <div class='container'>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th scope='col'>Dates</th>
+          <th scope='col'>From Time</th>
+          <th scope='col'>To Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @slots.each do |slot| %>
+          <tr>
+            <td scope='row'><%= slot.dates %></td>
+            <td><%= slot.time_in_format(slot.from) %></td>
+            <td><%= slot.time_in_format(slot.to) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>  
+</div>

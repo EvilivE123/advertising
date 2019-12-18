@@ -1,0 +1,27 @@
+<div class='ad-space-agent-grid'>
+  <div class='header'>
+    <h3>Listing Vacant Slots</h3>
+  </div>
+  <div class='container'>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th scope='col'>Dates</th>
+          <th scope='col'>From Time</th>
+          <th scope='col'>To Time</th>
+          <th scope='col'>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @slots.each do |slot| %>
+          <tr>
+            <td scope='row'><%= slot.date %></td>
+            <td><%= slot.time_in_format(slot.from) %></td>
+            <td><%= slot.time_in_format(slot.to) %></td>
+            <td><%= link_to 'Pre-Book', new_ad_space_agent_slot_pre_booked_slot_path(current_user, slot), class: 'btn btn-outline-primary btn-sm'%></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>  
+</div>

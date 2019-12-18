@@ -1,0 +1,19 @@
+<div class='new-slot-grid'>
+ 	<div class='header'>
+ 		<h3>New Slot</h3>
+ 	</div>
+  <%= bootstrap_form_for(@slot, url: ad_space_provider_slots_path, 
+    layout: :horizontal, label_col: 'col-1 offset-4', control_col: 'col-3') do |f| %> 		
+ 		<div class='fields'>  
+      <%= f.text_field :from, label: 'From', class: 'datetimepicker-input', id: 'from', 
+        data: { toggle: 'datetimepicker', target: '#from' } %>   
+      <%= f.text_field :to, label: 'To', class: 'datetimepicker-input', id: 'to', 
+        data: { toggle: 'datetimepicker', target: '#to' } %>  
+    </div>
+    <div class='actions'>
+      <%= f.submit 'Save', class: 'btn btn-outline-primary btn-sm' %>
+      &nbsp;
+      <%= link_to 'Back', ad_space_providers_path, class: 'btn btn-outline-secondary btn-sm' %>
+    </div>
+  <% end %>
+</div>

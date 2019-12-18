@@ -1,0 +1,22 @@
+<div class='new-ad-space-agent-slot-grid'>
+  <div class='header'>
+    <h3>Pre-Book Slot</h3>
+  </div>
+  
+  <%= bootstrap_form_for(@pre_booked_slot, url: ad_space_agent_slot_pre_booked_slots_path, 
+    layout: :horizontal, label_col: 'col-2 offset-3', control_col: 'col-3') do |f| %>     
+    <div class='fields'>  
+      <%= f.text_field :party_name, label: 'Party Name' %>
+      <%= f.text_field :from, label: 'From', value: @slot.time_in_format(@slot.from),
+        disabled: true %> 
+      <%= f.text_field :to, label: 'To', value: @slot.time_in_format(@slot.to),
+        disabled: true %>   
+      <%= f.text_field :price, label: 'Price' %>    
+    </div>
+    <div class='actions'>
+      <%= f.submit 'Save', class: 'btn btn-outline-primary btn-sm' %>
+      &nbsp;
+      <%= link_to 'Back', ad_space_agents_path, class: 'btn btn-outline-secondary btn-sm' %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,30 @@
+<div class='book-slot-grid'>
+  <div class='header'>
+    <h3>Book Slot</h3>
+  </div>
+  
+  <%= bootstrap_form_for(@booked_slot, 
+    url: organization_ad_space_agent_slot_booked_slots_path,
+    layout: :horizontal, label_col: 'col-2 offset-3', control_col: 'col-3') do |f| %>     
+    <div class='fields'>  
+      <%= f.text_field :date, label: 'Dates', 
+        value: @slot.dates, disabled: true %>
+      <%= f.text_field :party_name, label: 'Party Name', 
+        value: @slot.pre_booked_slot.party_name, disabled: true %>
+      <%= f.text_field :name, label: 'Agent Name', 
+        value: @slot.pre_booked_slot.ad_space_agent.name, disabled: true %>  
+      <%= f.text_field :from, label: 'From', 
+        value: @slot.time_in_format(@slot.from), disabled: true %> 
+      <%= f.text_field :to, label: 'To', value: @slot.time_in_format(@slot.to),
+        disabled: true %>   
+      <%= f.text_field :price, label: 'Price', value: @slot.pre_booked_slot.price,
+        disabled: true %>
+      <%= f.text_field :bid, label: 'Bid', value: @slot.pre_booked_slot.price %>       
+    </div>
+    <div class='actions'>
+      <%= f.submit 'Save', class: 'btn btn-outline-primary btn-sm' %>
+      &nbsp;
+      <%= link_to 'Back', organizations_path, class: 'btn btn-outline-secondary btn-sm' %>
+    </div>
+  <% end %>
+</div>
