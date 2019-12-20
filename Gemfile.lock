@@ -35,8 +35,6 @@ GEM
       activemodel (= 5.2.4)
       activesupport (= 5.2.4)
       arel (>= 9.0)
-    activerecord-mysql2-adapter (0.0.3)
-      mysql2
     activestorage (5.2.4)
       actionpack (= 5.2.4)
       activerecord (= 5.2.4)
@@ -250,7 +248,6 @@ PLATFORMS
 
 DEPENDENCIES
   aasm
-  activerecord-mysql2-adapter
   awesome_print
   bootsnap (>= 1.1.0)
   bootstrap
