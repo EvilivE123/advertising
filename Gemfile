@@ -15,6 +15,8 @@ gem 'bootstrap'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
+# Generated Scope
+gem 'pacecar'
 # gem 'mini_racer', platforms: :ruby
 # Validate date, time
 gem 'validates_timeliness'
@@ -42,7 +44,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 # User Authentication
 gem 'devise', '4.7.1'
-
+# Exception Notifier
+gem 'exception_notification'
 # Text Formatter
 gem 'awesome_print'
 # Use ActiveStorage variant

@@ -1,32 +1,30 @@
 class BookedSlotsController < ApplicationController
-  before_action :find_slot_organization_ad_space_agent, only: [:new, :build_booked_slots]
-  before_action :build_booked_slot, only: :create
+  before_action :find_slot_organization_ad_space_agent, only: [:new, :create]
 
   def new
   	@booked_slot = BookedSlot.new
-    @slot = Slot.find_by_id(params[:slot_id])
+    @booked_slot.slot = @slot
+    @booked_slot.organization = @organization
+    @booked_slot.ad_space_agent = @ad_space_agent
   end
 
   def create
+    @booked_slot = BookedSlot.new(booked_slot_params)
+    @booked_slot.slot = @slot
+    @booked_slot.organization = @organization
+    @booked_slot.ad_space_agent = @ad_space_agent
   	if @booked_slot.save
-=  		flash[:success] = 'Request Made to book slot successfully'
+  		flash[:success] = 'Request Made to book slot successfully'
       redirect_to organizations_path
-  	else
+    else
   		render :new
-  	end
-  end
-
-  def build_booked_slot
-  	@booked_slot = BookedSlot.new(booked_slot_params)
-  	@booked_slot.slot = @slot
-  	@booked_slot.ad_space_agent = @ad_space_agent
-  	@booked_slot.organization = @organization
+    end
   end
 
 	def find_slot_organization_ad_space_agent
-  	@slot = Slot.find_by_id(params[:slot_id])
+    @slot = Slot.find_by_id(params[:slot_id])
     @ad_space_agent = AdSpaceAgent.find_by_id(params[:ad_space_agent_id])
-    @organization = Organization.find_by_id(params[:organization_id])	  	
+    @organization = Organization.find_by_id(params[:organization_id]) 	
 	end  
 
   private

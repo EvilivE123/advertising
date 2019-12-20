@@ -11,7 +11,7 @@
         <%= f.text_field :name, hide_label: true, placeholder: 'Enter Name' %>
         <%= f.email_field :email, hide_label: true, placeholder: 'Enter Email' %>
         <%= f.select(:type, options_for_select(
-          [['Organization', 'Organization'], ['AdSpaceAgent', 'AdSpaceAgent']]), 
+          [['Organization', 'Organization'], ['Ad Space Agent', 'AdSpaceAgent']]), 
           { include_blank: 'Select Type', hide_label: true }, 
           { class: 'browser-default custom-select' }) %>  
         <%= f.password_field :password, hide_label: true, placeholder: 'Enter Password' %> 

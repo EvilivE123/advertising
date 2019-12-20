@@ -73,4 +73,12 @@ Rails.application.configure do
     enable_starttls_auto: true
   }
 
+  Rails.application.config.middleware.use ExceptionNotification::Rack,
+  email: {
+    deliver_with: :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now
+    email_prefix: '[AdvertisingManagement-Development] ',
+    sender_address: %{"notifier" <notifier@example.com>},
+    exception_recipients: %w{exceptions@example.com}
+  }
+
 end

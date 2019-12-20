@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :organizations, only: [:index] do
     collection do
       get :booked_slots
+      get :requested_slots
     end
     resources :ad_space_agents do
       resources :slots do

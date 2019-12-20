@@ -1,0 +1,29 @@
+<div class='requested-slots-grid'>
+  <div class='header'>
+    <h3>Requested Slots</h3>
+  </div>
+  <div class='container'>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th scope='col'>Dates</th>
+          <th scope='col'>From Time</th>
+          <th scope='col'>To Time</th>
+          <th scope='col'>Party Name</th>
+          <th scope='col'>Bid</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @requested_slots.each do |requested_slot| %>
+          <tr>
+            <td scope='row'><%= requested_slot.slot.dates %></td>
+            <td><%= requested_slot.slot.time_in_format(requested_slot.slot.from) %></td>
+            <td><%= requested_slot.slot.time_in_format(requested_slot.slot.to) %></td>
+            <td><%= requested_slot.slot.pre_booked_slot.party_name %></td>
+            <td><%= requested_slot.bid %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>  
+</div>

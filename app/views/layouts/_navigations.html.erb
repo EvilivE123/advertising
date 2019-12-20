@@ -12,7 +12,7 @@
     <form class="form-inline">
       <%= "Welcome #{current_user.name} !" %>
       <div style="margin-left: 10px;">
-        <%= link_to 'logout', destroy_user_session_path, method: :delete, class: 'btn btn-outline-dark' %>
+        <%= link_to('logout', destroy_user_session_path, method: :delete, class: 'btn btn-outline-dark') %>
       </div>
     </form>
   </nav>

@@ -1,0 +1,11 @@
+<p>
+  Hello <%= @user.name%>, Your Pre-Booked Slot is been Booked Successfully by the Agent <%= @booked_slot.ad_space_agent.name %>. Please find the details below 
+</p>
+
+<pre>
+  Agent Name        => <%= @booked_slot.ad_space_agent.name %>
+  Party Name        => <%= @booked_slot.slot.pre_booked_slot.party_name %>
+  Dates             => <%= @booked_slot.slot.dates %>
+  Price             => <%= @booked_slot.slot.pre_booked_slot.price %>
+  Bid               => <%= @booked_slot.bid %>
+</pre>

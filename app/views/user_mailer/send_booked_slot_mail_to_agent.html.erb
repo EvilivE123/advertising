@@ -1,0 +1,11 @@
+<p>
+  Hello <%= @user.name%>, Your Pre-Booked Slot is been Sold to the Organization <%= @booked_slot.organization.name %>. Please find the details below 
+</p>
+
+<pre>
+  Organization Name => <%= @booked_slot.organization.name %>
+  Party Name        => <%= @booked_slot.slot.pre_booked_slot.party_name %>
+  Dates             => <%= @booked_slot.slot.dates %>
+  Price             => <%= @booked_slot.slot.pre_booked_slot.price %>
+  Bid               => <%= @booked_slot.bid %>
+</pre>

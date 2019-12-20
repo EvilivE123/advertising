@@ -4,7 +4,11 @@ class OrganizationsController < ApplicationController
   end
 
   def booked_slots
-  	@booked_slots = Slot.booked.includes(:organization_ad_space_agent_slots)
-  		.where(organization_ad_space_agent_slots: { organization_id: current_user })
+  	@booked_slots = Slot.booked.includes(:booked_slots)
+  		.where(booked_slots: { organization: current_user })
+  end
+
+  def requested_slots
+  	@requested_slots = BookedSlot.where(organization_id: current_user.id)
   end
 end

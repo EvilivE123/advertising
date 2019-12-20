@@ -2,7 +2,7 @@ class Slot < ApplicationRecord
 	include AASM
 
 	has_one :pre_booked_slot
-  has_one :booked_slot
+  has_many :booked_slots  
 
   validates_presence_of :from, :to
   
@@ -16,14 +16,14 @@ class Slot < ApplicationRecord
 
   aasm do
     state :created, initial: true
-    state :pre_booked, :booked
+    state :pre_booked, :booked, :sold
 
     event :pre_booked do
       transitions from: :created, to: :pre_booked
     end
 
     event :booked do
-			transitions from: :pre_booked, to: :booked 
+			transitions from: :pre_booked, to: :booked
     end
   end
   

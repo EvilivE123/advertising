@@ -15,7 +15,7 @@
       <tbody>
         <% @slots.each do |slot| %>
           <tr>
-            <td scope='row'><%= slot.date %></td>
+            <td scope='row'><%= slot.dates %></td>
             <td><%= slot.time_in_format(slot.from) %></td>
             <td><%= slot.time_in_format(slot.to) %></td>
             <td><%= link_to 'Pre-Book', new_ad_space_agent_slot_pre_booked_slot_path(current_user, slot), class: 'btn btn-outline-primary btn-sm'%></td>
