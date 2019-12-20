@@ -1,10 +1,10 @@
 default: &default
-  sender_email: 'sender_email'
+  sender_email: 'palande.gaurav777@gmail.com'
   address: 'smtp.gmail.com'
   port: '587'
   domain: 'gmail.com'
-  user_name: 'sender_email'
-  password: 'password'
+  user_name: 'evilive1769@gmail.com'
+  password: 'gauravpalande@1996'
   authentication: 'plain'
 
 development:

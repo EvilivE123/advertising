@@ -7,6 +7,7 @@ ruby '2.5.3'
 gem 'rails', '~> 5.2.3'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
+gem 'activerecord-mysql2-adapter'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -21,7 +22,7 @@ gem 'pacecar'
 # Validate date, time
 gem 'validates_timeliness'
 # DatePicker
-gem 'bootstrap4-datetime-picker-rails'
+gem 'bootstrap4-datetime-picker-rails', '0.3.1'
 # Awesome font
 gem "font-awesome-rails"
 # Bootstrap Select
