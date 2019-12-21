@@ -108,7 +108,7 @@ Rails.application.configure do
   email: {
     deliver_with: :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now
     email_prefix: '[AdvertisingManagement-Production]',
-    sender_address: %{"notifier" <notifier@example.com>},
+    sender_address: 'evilive1769@gmail.com',
     exception_recipients: 'palande.gaurav777@gmail.com'
   }
 end
