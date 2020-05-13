@@ -64,13 +64,12 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: ENV['address'],
-    port: ENV['port'],
-    domain: ENV['domain'],
-    user_name: ENV['user_name'],
-    password: ENV['password'],
-    authentication: ENV['authentication'],
-    enable_starttls_auto: true
+    address: 'smtp.gmail.com',
+    port: 587,
+    domain: 'gmail.com',
+    user_name: 'evilive1769@gmail.com',
+    password: 'gauravpalande@1996',
+    authentication: 'plain'
   }
 
   Rails.application.config.middleware.use ExceptionNotification::Rack,
@@ -78,7 +77,7 @@ Rails.application.configure do
     deliver_with: :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now
     email_prefix: '[AdvertisingManagement-Development] ',
     sender_address: %{"notifier" <notifier@example.com>},
-    exception_recipients: %w{exceptions@example.com}
+    exception_recipients: %w{palande.gaurav777@gmail.com}
   }
 
 end

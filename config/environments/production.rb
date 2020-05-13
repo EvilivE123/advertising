@@ -97,13 +97,13 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
-    port: '587',
+    port: 587,
     domain: 'gmail.com',
     user_name: 'evilive1769@gmail.com',
     password: 'gauravpalande@1996',
-    authentication: 'plain',
-    enable_starttls_auto: true
+    authentication: 'plain'
   }
+  
   Rails.application.config.middleware.use ExceptionNotification::Rack,
   email: {
     deliver_with: :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now

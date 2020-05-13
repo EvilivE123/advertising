@@ -9,14 +9,9 @@ class User < ApplicationRecord
   validates_length_of :password, minimum: 6
 
   before_create :send_credentials
-  before_save :send_credentials_before_password_reset , if:  :encrypted_password_changed?
-
+  
   def send_credentials
   	UserMailer.send_credentials_before_registration(self).deliver_now
-  end
-
-  def send_credentials_before_password_reset
-  	UserMailer.send_credentials_before_password_reset(self).deliver_now
   end
 
 end
