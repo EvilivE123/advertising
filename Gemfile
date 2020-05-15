@@ -48,6 +48,8 @@ gem 'devise', '4.7.1'
 gem 'exception_notification'
 # Text Formatter
 gem 'awesome_print'
+
+gem 'dotenv-rails'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

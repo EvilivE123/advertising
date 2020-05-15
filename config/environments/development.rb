@@ -63,20 +63,22 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
+
+  ActionMailer::Base.smtp_settings = {
+    address: 'smtp.sendgrid.net',
     port: 587,
-    domain: 'gmail.com',
-    user_name: 'evilive1769@gmail.com',
-    password: 'gauravpalande@1996',
-    authentication: 'plain'
+    domain: 'heroku.com',
+    user_name: ENV['SENDGRID_USERNAME'],
+    password: ENV['SENDGRID_PASSWORD'],
+    authentication: :login,
+    enable_starttls_auto: true
   }
 
   Rails.application.config.middleware.use ExceptionNotification::Rack,
   email: {
     deliver_with: :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now
     email_prefix: '[AdvertisingManagement-Development] ',
-    sender_address: %{"notifier" <notifier@example.com>},
+    sender_address: ENV['SENDER_EMAIL'],
     exception_recipients: %w{palande.gaurav777@gmail.com}
   }
 
