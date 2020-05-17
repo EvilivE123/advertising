@@ -7,7 +7,7 @@ class UserMailer < ApplicationMailer
   #
   def send_credentials_before_registration(user)
   	@user = user
-  	mail(from: 'evilive1769@gmail.com', to: 'evilive1769@gmail.com', subject: 'AdvertisingManagement - New Member Registration')
+  	mail(from: ENV['SENDER_EMAIL'], to: ENV['SENDER_EMAIL'], subject: 'AdvertisingManagement - New Member Registration')
   end
 
   def send_credentials_before_password_reset(user)

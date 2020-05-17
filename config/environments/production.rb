@@ -93,7 +93,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'http://evilive-advertising-management.herokuapp.com/' }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.default_options = { from: 'palande.gaurav777@gmail.com' }
+  config.action_mailer.default_options = { from: ENV['SENDER_EMAIL'] }
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
@@ -104,5 +104,12 @@ Rails.application.configure do
     :authentication       => "plain",
     :enable_starttls_auto => true
   }
+
+  email: {
+    deliver_with: :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now
+    email_prefix: '[AdvertisingManagement-Development] ',
+    sender_address: ENV['SENDER_EMAIL'],
+    exception_recipients: %w{palande.gaurav777@gmail.com}
+  }  
   
 end
