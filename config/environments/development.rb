@@ -64,13 +64,13 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
 
-  ActionMailer::Base.smtp_settings = {
-    :port           => ENV['MAILGUN_SMTP_PORT'],
-    :address        => ENV['MAILGUN_SMTP_SERVER'],
-    :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
-    :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-    :domain         => 'evilive-advertising-management.heroku.com',
-    :authentication => :plain,
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :user_name            => 'evilive1769@gmail.com',
+    :password             => 'tcfpilyxcrpovxay',
+    :authentication       => "plain",
+    :enable_starttls_auto => true
   }
 
   Rails.application.config.middleware.use ExceptionNotification::Rack,
