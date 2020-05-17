@@ -93,6 +93,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'https://evilive-advertising-management.herokuapp.com/' }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_options = { from: 'palande.gaurav777@gmail.com' }
 
   config.action_mailer.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
@@ -104,4 +105,11 @@ Rails.application.configure do
     :authentication => :plain,
   }
   
+  Rails.application.config.middleware.use ExceptionNotification::Rack,
+  email: {
+    deliver_with: :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now
+    email_prefix: '[AdvertisingManagement-Production]',
+    sender_address: ENV['SENDER_EMAIL'],
+    exception_recipients: 'palande.gaurav777@gmail.com'
+  }
 end
